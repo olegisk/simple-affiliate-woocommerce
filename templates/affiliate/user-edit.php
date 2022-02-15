@@ -1,3 +1,10 @@
+<?php
+/** @var string $reference  */
+/** @var float $discount_rate  */
+/** @var float $commission_rate */
+/** @var string $currency  */
+/** @var float $balance */
+?>
 <h2><?php _e( 'Affiliate', 'simple-affiliate' ); ?></h2>
 <table class="form-table">
     <tr>

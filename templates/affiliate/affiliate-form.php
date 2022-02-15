@@ -1,3 +1,7 @@
+<?php
+/** @var string $affiliate  */
+/** @var bool $permanent_token  */
+?>
 <div class="simple-affiliate-form woocommerce">
     <?php
     $info_message = apply_filters( 'simple_affiliate_set_referrer_message', __( 'Did anyone suggest our site to you?', 'simple-affiliate' ) . ' <a href="#" class="show-referrer-form">' . __( 'Click here to enter his/her affiliate code', 'simple-affiliate' ) . '</a>' );

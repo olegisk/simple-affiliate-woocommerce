@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: Simple Affiliate for WooCommerce
- * Plugin URI: https://github.com/olegisk
+ * Plugin URI: https://github.com/olegisk/simple-affiliate-woocommerce
  * Description: Simple Affiliate for WooCommerce
  * Author: olegisk
  * Author URI: https://github.com/olegisk
@@ -57,17 +57,17 @@ CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}affiliate_earnings` (
   `customer_id` int(11) NOT NULL COMMENT 'Customer Id',
   `discount_rate` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT 'Discount Rate',
   `discount` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT 'Discount Total',
-  `discount_currency` varchar(255) CHARACTER SET latin1 NOT NULL COMMENT 'Currency of Discount total',
+  `discount_currency` varchar(255) NOT NULL COMMENT 'Currency of Discount total',
   `commission_rate` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT 'Commission Rate',
   `commission` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT 'Commission Total',
-  `commission_currency` varchar(255) CHARACTER SET latin1 NOT NULL COMMENT 'Currency of Commission Total',
-  `comment` text COLLATE utf8_bin NOT NULL,
+  `commission_currency` varchar(255) NOT NULL COMMENT 'Currency of Commission Total',
+  `comment` text NOT NULL,
   `creation_date` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `order_id` (`order_id`),
   KEY `user_id` (`user_id`),
   KEY `customer_id` (`customer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=INNODB DEFAULT CHARSET={$wpdb->charset};
 ";
 		$wpdb->query( $query );
 
@@ -77,13 +77,13 @@ CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}affiliate_spending` (
   `user_id` int(11) NOT NULL COMMENT 'Affiliate User Id',
   `order_id` int(11) NOT NULL COMMENT 'Order ID',
   `total_spent` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT 'Spent Total',
-  `currency` varchar(255) COLLATE utf8_bin NOT NULL COMMENT 'Currency of amount',
-  `comment` text COLLATE utf8_bin NOT NULL,
+  `currency` varchar(255) NOT NULL COMMENT 'Currency of amount',
+  `comment` text NOT NULL,
   `creation_date` datetime NOT NULL COMMENT 'Creation Date',
   PRIMARY KEY (`id`),
   UNIQUE KEY `order_id` (`order_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+) ENGINE=INNODB DEFAULT CHARSET={$wpdb->charset};
 ";
 		$wpdb->query( $query );
 

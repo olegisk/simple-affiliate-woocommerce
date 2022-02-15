@@ -1,13 +1,24 @@
+<?php
+/** @var float $balance  */
+/** @var float $to_use  */
+/** @var float $max_allowed_balance */
+/** @var string $currency  */
+?>
 <?php if ( $balance > 0 ): ?>
     <div id="affliate-balance">
-        <h3 class="order_review_heading"><?php echo __( 'Affiliate Balance', 'simple-affiliate' ); ?></h3>
+        <h3 class="order_review_heading">
+            <?php echo __( 'Affiliate Balance', 'simple-affiliate' ); ?>
+        </h3>
 
 		<?php if ( $to_use > 0 ): ?>
             <div class="balance-form">
                 <p class="form-row form-row-widet">
                     <label for="apply_balance">
-						<?php echo sprintf( __( 'You are applied %s %s affiliate credits now.', 'simple-affiliate' ),
-							round( $to_use, 2 ), $currency ); ?>
+						<?php echo esc_html( sprintf(
+						/* translators: 1: price 2: currency */                            __( 'You are applied %s %s affiliate credits now.', 'simple-affiliate' ),
+                                round( $to_use, 2 ),
+                                $currency
+                        ) ); ?>
                     </label>
                     <input type="submit" class="button" name="remove_balance" id="remove_balance"
                            value="<?php esc_attr_e( 'Remove', 'simple-affiliate' ); ?>"/>
@@ -49,8 +60,11 @@
 		<?php else: ?>
             <div class="balance-form">
                 <p>
-					<?php echo sprintf( __( 'You have %s %s affiliate credits now.', 'simple-affiliate' ),
-						round( $balance, 2 ), $currency ); ?>
+					<?php echo esc_html( sprintf(
+					/* translators: 1: price 2: currency */                            __( 'You have %s %s affiliate credits now.', 'simple-affiliate' ),
+                            round( $balance, 2 ),
+                            $currency
+                    ) ); ?>
                 </p>
 
                 <p class="form-row form-row-first">

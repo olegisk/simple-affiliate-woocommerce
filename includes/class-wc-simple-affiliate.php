@@ -384,7 +384,7 @@ class WC_Simple_Affiliate {
 	 */
 	public function ajax_balance_apply() {
 		if ( isset( $_REQUEST['amount'] ) ) {
-			$amount = (float) $_REQUEST['amount'];
+			$amount = (float) wc_clean( $_REQUEST['amount'] );
 			if ( $amount > 0 ) {
 				// Save in session
 				WC()->session->set( 'aff_use_balance', $amount );

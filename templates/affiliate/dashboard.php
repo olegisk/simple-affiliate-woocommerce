@@ -1,8 +1,14 @@
+<?php
+/** @var string $reference  */
+/** @var float $balance  */
+/** @var int $user_id */
+/** @var string $currency  */
+?>
 <div class="affiliate-dashboard">
     <h2><?php _e( 'Info', 'simple-affiliate' ); ?></h2>
     <table class="shop_table shop_table_responsive my_account_orders">
         <tbody>
-        <?php if (!empty($reference)): ?>
+        <?php if ( ! empty( $reference ) ): ?>
         <tr>
             <td>
                 <?php _e( 'Affiliate ID', 'simple-affiliate' ); ?>
@@ -16,7 +22,9 @@
                 <?php _e( 'Affiliate link', 'simple-affiliate' ); ?>
             </td>
             <td>
-                <?php echo site_url(); ?>?affid=<?php echo esc_attr( $reference ); ?>
+                <?php
+                echo esc_html( add_query_arg( array( 'affid' => $reference  ), site_url() ) );
+                ?>
             </td>
         </tr>
         <?php endif; ?>
@@ -61,7 +69,7 @@
                 <select name="currency" id="currency" class="woocommerce-select">
                     <?php foreach ($currencies as $item): ?>
                         <option <?php echo $currency === $item ? 'selected' : ' '  ?> value="<?php echo $item; ?>">
-                            <?php echo $item; ?>
+                            <?php echo esc_html( $item ); ?>
                         </option>
                     <?php endforeach; ?>
                 </select>
@@ -85,5 +93,5 @@
         </fieldset>
     </form>
     <h2><?php _e( 'Earning history', 'simple-affiliate' ); ?></h2>
-    <?php echo do_shortcode( '[affiliate_history user_id="' . $user_id . '"]' ); ?>
+    <?php echo do_shortcode( '[affiliate_history user_id="' . esc_html( (int) $user_id ) . '"]' ); ?>
 </div>
