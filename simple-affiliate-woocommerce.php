@@ -7,7 +7,7 @@
  * Author URI: https://github.com/olegisk
  * License: Apache License 2.0
  * License URI: http://www.apache.org/licenses/LICENSE-2.0
- * Version: 1.0.0
+ * Version: 1.0.1
  * Text Domain: simple-affiliate
  * Domain Path: /i18n
  * WC requires at least: 5.5.1

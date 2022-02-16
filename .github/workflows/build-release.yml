@@ -1,0 +1,38 @@
+name: Deploy to WordPress.org
+on:
+  push:
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+  pull_request:
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: WordPress Plugin Deploy
+        uses: varunsridharan/action-wp-org-deploy@main
+        with:
+          WORDPRESS_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          WORDPRESS_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SLUG: simple-affiliate-for-woocommerce
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Changes in this Release
+            - First Change
+            - Second Change
+          draft: true
+          prerelease: false
