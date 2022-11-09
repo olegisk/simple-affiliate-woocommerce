@@ -7,11 +7,11 @@
  * Author URI: https://github.com/olegisk
  * License: Apache License 2.0
  * License URI: http://www.apache.org/licenses/LICENSE-2.0
- * Version: 1.0.1
+ * Version: 1.0.2
  * Text Domain: simple-affiliate
  * Domain Path: /i18n
  * WC requires at least: 5.5.1
- * WC tested up to: 6.2.0
+ * WC tested up to: 7.1.0
  */
 
 defined( 'ABSPATH' ) || exit;

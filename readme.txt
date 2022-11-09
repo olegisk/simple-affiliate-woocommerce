@@ -2,8 +2,8 @@
 Contributors: olegisk
 Tags: ecommerce, e-commerce, commerce, woothemes, wordpress ecommerce, woocommerce, affiliate
 Requires at least: 5.3
-Tested up to: 5.9.0
-Stable tag: 1.0.1
+Tested up to: 6.1.0
+Stable tag: 1.0.2
 License: Apache License 2.0
 License URI: http://www.apache.org/licenses/LICENSE-2.0
 
